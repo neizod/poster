@@ -45,9 +45,8 @@ height_pixel = dpi * height_inch
 
 
 def mandelbrot_accept(c):
-    q = (c.real-1/4)**2 + c.imag**2
-    is_main_cardioid = (q*(q+c.real-1/4) <= (1/4)*c.imag**2)
-    is_main_disk = ((c.real+1)**2 + c.imag**2 <= 1/16)
+    is_main_cardioid = (abs(1-(1-4*c)**.5) < 1)
+    is_main_disk = (abs(1+c) < 1/4)
     return is_main_cardioid or is_main_disk
 
 
